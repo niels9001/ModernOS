@@ -5,5 +5,5 @@ This project is a UX concept that is a vision on what WCOS/Santorini could be li
 
 
 
-![alt text](https://raw.githubusercontent.com/niels9001/ModernOS/master/ModernOS/Assets/Images/WCOS.png)
+![alt text](https://raw.githubusercontent.com/niels9001/ModernOS/master/ModernOS/Assets/Images/W                                     COS.png)
 
