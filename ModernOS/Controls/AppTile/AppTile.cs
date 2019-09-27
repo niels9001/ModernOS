@@ -74,7 +74,8 @@ namespace ModernOS.Controls
 
             _backgroundShadow.Receivers.Add(_backgroundShadowReceiverGrid);
 
-            _tileGrid.Background = new AcrylicBrush() { BackgroundSource = AcrylicBackgroundSource.Backdrop, FallbackColor = TileColor, TintColor = TileColor, TintOpacity = 0.6, TintTransitionDuration = new TimeSpan(0, 0, 0, 0, 400) };
+            //_tileGrid.Background = new AcrylicBrush() { BackgroundSource = AcrylicBackgroundSource.Backdrop, FallbackColor = TileColor, TintColor = TileColor, TintOpacity = 0.6, TintTransitionDuration = new TimeSpan(0, 0, 0, 0, 400) };
+            _tileGrid.Background = new SolidColorBrush(Colors.Transparent);
 
             _appIcon.Source = new BitmapImage() { UriSource = new Uri(IconPath) };
             base.OnApplyTemplate();
@@ -88,22 +89,16 @@ namespace ModernOS.Controls
 
         private void AppTile_PointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
-         
-            _tileGrid.Translation = new Vector3(0, 0, 4);
-            var imageVisual = ElementCompositionPreview.GetElementVisual(_appTitle);
-            imageVisual.Offset = new Vector3(imageVisual.Offset.X, imageVisual.Offset.Y + 8, imageVisual.Offset.Z);
+
+            _rootGrid.Opacity = 1;
+
 
             //_appTitle.Offset(offsetX: 0f, offsetY: 0, duration: 150, delay: 0, easingMode: EasingMode.EaseInOut).Start();
         }
 
         private void AppTile_PointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
-            var imageVisual = ElementCompositionPreview.GetElementVisual(_appTitle);
-            imageVisual.Offset = new Vector3(imageVisual.Offset.X, imageVisual.Offset.Y - 8, imageVisual.Offset.Z);
-            //   RootElement.(RevealBrush.State)
-         
-          //  _appTitle.Offset(offsetX: 0f, offsetY: -8f, duration: 150, delay: 0, easingMode: EasingMode.EaseInOut).Start();
-            _tileGrid.Translation = new Vector3(0, 0, 40);
+            _rootGrid.Opacity = 0.6;
         }
 
         private void AppTile_Loaded(object sender, RoutedEventArgs e)

@@ -137,6 +137,9 @@
     <Compile Include="Controls\VolumeControl.xaml.cs">
       <DependentUpon>VolumeControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\YourPhone.xaml.cs">
+      <DependentUpon>YourPhone.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -148,17 +151,30 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Icons\Calendar.png" />
+    <Content Include="Assets\Icons\Camera.png" />
     <Content Include="Assets\Icons\Excel.png" />
+    <Content Include="Assets\Icons\Feedback.png" />
+    <Content Include="Assets\Icons\FileExplorer.png" />
+    <Content Include="Assets\Icons\Groove.png" />
+    <Content Include="Assets\Icons\Mail.png" />
+    <Content Include="Assets\Icons\Mobile.png" />
+    <Content Include="Assets\Icons\Movies.png" />
     <Content Include="Assets\Icons\Netflix.png" />
     <Content Include="Assets\Icons\OneDrive.png" />
     <Content Include="Assets\Icons\OneNote.png" />
     <Content Include="Assets\Icons\Outlook.png" />
+    <Content Include="Assets\Icons\Photos.png" />
     <Content Include="Assets\Icons\PowerPoint.png" />
+    <Content Include="Assets\Icons\ScreenSketch.png" />
     <Content Include="Assets\Icons\SharePoint.png" />
     <Content Include="Assets\Icons\Skype.png" />
+    <Content Include="Assets\Icons\Solitaire.png" />
     <Content Include="Assets\Icons\Spotify.png" />
     <Content Include="Assets\Icons\Spotify_Logo.png" />
     <Content Include="Assets\Icons\Teams.png" />
+    <Content Include="Assets\Icons\Weather.png" />
+    <Content Include="Assets\Icons\Whiteboard.png" />
     <Content Include="Assets\Icons\Word.png" />
     <Content Include="Assets\Icons\Yammer.png" />
     <Content Include="Assets\Images\Avatar.jpeg" />
@@ -169,6 +185,7 @@
     <Content Include="Assets\Images\Wallpaper-Wave.jpg" />
     <Content Include="Assets\Images\Waves.mp4" />
     <Content Include="Assets\Images\WCOS.png" />
+    <Content Include="Assets\Images\YourPhone.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
@@ -241,6 +258,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\VolumeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\YourPhone.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

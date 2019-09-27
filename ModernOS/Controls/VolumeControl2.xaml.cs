@@ -30,7 +30,7 @@ namespace ModernOS.Controls
             CoverArtShadow.Receivers.Add(CoverArtBackgroundShadowGrid);
             VolumeGridShadow.Receivers.Add(BackgroundShadowGrid);
             MusicGridShadow.Receivers.Add(BackgroundShadowGrid);
-           
+
 
 
             SetSong();
@@ -54,10 +54,10 @@ namespace ModernOS.Controls
         {
             if (MusicCounter < 0)
             {
-                MusicCounter = Songs.Count -1;
+                MusicCounter = Songs.Count - 1;
             }
 
-            if (MusicCounter > Songs.Count -1)
+            if (MusicCounter > Songs.Count - 1)
             {
                 MusicCounter = 0;
             }
@@ -67,7 +67,7 @@ namespace ModernOS.Controls
             Title.Text = SelectedSong.Title;
             CoverArt.SelectedIndex = MusicCounter;
         }
- 
+
         private void PreviousBtn_Click(object sender, RoutedEventArgs e)
         {
             MusicCounter--;
@@ -76,7 +76,7 @@ namespace ModernOS.Controls
 
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-      
+
             MusicCounter++;
             SetSong();
 

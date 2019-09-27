@@ -95,7 +95,7 @@
                     <animations:OpacityAnimation Duration="0:0:0.350" To="0" From="1.0"/>
                 </animations:Implicit.HideAnimations>
                 </TextBlock>
-             
+
                 <StackPanel Grid.Column="1" Spacing="24" Orientation="Horizontal" VerticalAlignment="Bottom" Margin="8,0,0,16">
 
                     <Button x:Name="PreviousBtn" Padding="0" Background="Transparent" Foreground="{StaticResource PrimaryTextColor}" Style="{StaticResource IconOnlyWithoutBackgroundButton}" Grid.Column="0" Click="PreviousBtn_Click">
@@ -138,7 +138,7 @@
                         </animations:Implicit.HideAnimations>
                     </Button>
                 </StackPanel>
-               
+
             </Grid>
         </Grid>
 

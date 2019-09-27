@@ -13,7 +13,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:AppTile">
-                    <Grid x:Name="RootGrid" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch">
+                    <Grid x:Name="RootGrid" Background="Transparent" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch">
+                        <animations:Implicit.Animations>
+                            <animations:OpacityAnimation Target="Opacity"  Duration="0:0:0.150"/>
+                        </animations:Implicit.Animations>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="16" />
@@ -25,7 +28,7 @@
 
                         <Grid x:Name="BackgroundShadowReceiverGrid" Grid.RowSpan="2"/>
 
-                        <Grid x:Name="TileGrid" Grid.Row="0" Width="82" Height="82" Margin="16" Translation="0, 0, 12" CornerRadius="4" Shadow="{StaticResource BackgroundShadow}">
+                        <Grid x:Name="TileGrid" Grid.Row="0" Width="74" Height="74" Margin="16,16,16,0" Translation="0, 0, 12" CornerRadius="4" >
                             <Grid.TranslationTransition>
                                 <Vector3Transition Duration="0:0:0.25" Components="Z"/>
                             </Grid.TranslationTransition>
@@ -36,25 +39,28 @@
                             </Interactivity:Interaction.Behaviors>
                             <FlyoutBase.AttachedFlyout>
                                 <MenuFlyout>
-                                    <MenuFlyoutItem Text="Unpin">
+                                    <MenuFlyoutItem Text="Pin to taskbar">
                                         <MenuFlyoutItem.Icon>
-                                            <FontIcon Glyph="&#xE77A;"/>
+                                            <FontIcon Glyph="&#xE718;"/>
                                         </MenuFlyoutItem.Icon>
                                         <MenuFlyoutItem.KeyboardAccelerators>
                                             <KeyboardAccelerator Key="P" Modifiers="Control" />
                                         </MenuFlyoutItem.KeyboardAccelerators>
                                     </MenuFlyoutItem>
-                                    <MenuFlyoutItem Text="Share">
+                                    <MenuFlyoutItem Text="App settings">
                                         <MenuFlyoutItem.Icon>
-                                            <FontIcon Glyph="&#xE72D;"/>
+                                            <FontIcon Glyph="&#xE713;"/>
                                         </MenuFlyoutItem.Icon>
                                         <MenuFlyoutItem.KeyboardAccelerators>
                                             <KeyboardAccelerator Key="S" Modifiers="Control"/>
                                         </MenuFlyoutItem.KeyboardAccelerators>
                                     </MenuFlyoutItem>
-                                   
+
                                     <MenuFlyoutSeparator/>
                                     <MenuFlyoutItem Text="Uninstall">
+                                        <MenuFlyoutItem.Icon>
+                                            <FontIcon Glyph="&#xE74D;"/>
+                                        </MenuFlyoutItem.Icon>
                                         <MenuFlyoutItem.KeyboardAccelerators>
                                             <KeyboardAccelerator Key="Delete" />
                                         </MenuFlyoutItem.KeyboardAccelerators>
@@ -62,15 +68,15 @@
                                 </MenuFlyout>
 
                             </FlyoutBase.AttachedFlyout>
-                          
+
                             <!--<Grid.Background>
                                 <AcrylicBrush BackgroundSource="Backdrop" TintColor="{TemplateBinding TileColor}" TintOpacity="1" FallbackColor="White"/>
                             </Grid.Background>-->
 
                             <Image x:Name="AppIcon" HorizontalAlignment="Center" Margin="{TemplateBinding Padding}" VerticalAlignment="Center" Shadow="{StaticResource IconShadow}"/>
-                           
+
                         </Grid>
-                        <TextBlock x:Name="AppTitle" Grid.Row="1" Foreground="{StaticResource PrimaryTextColor}" Opacity="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="SemiBold" Text="{TemplateBinding AppName}" Margin="0,0,0,0">
+                        <TextBlock x:Name="AppTitle" Grid.Row="1" Foreground="{StaticResource PrimaryTextColor}" Opacity="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="12"  FontWeight="Normal" Text="{TemplateBinding AppName}" Margin="0,0,0,0">
                              <animations:Implicit.Animations>
                                     <animations:Vector3Animation Target="Offset"  Duration="0:0:0.150"></animations:Vector3Animation>
                                  </animations:Implicit.Animations>

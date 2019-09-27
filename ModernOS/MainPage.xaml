@@ -16,93 +16,135 @@
         </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="48"/>
+            <RowDefinition  Height="Auto"/>
         </Grid.RowDefinitions>
-        <!--<Image x:Name="Background" Source="ms-appx:///Assets/Images/Wallpaper-Wave.jpg" Grid.RowSpan="2"  Stretch="UniformToFill" PointerPressed="Background_PointerPressed"/>-->
+        <Image x:Name="BackgroundImage" Source="ms-appx:///Assets/Images/Wallpaper-Wave.jpg" Grid.RowSpan="2"  Stretch="UniformToFill" PointerPressed="Background_PointerPressed"/>
         <Grid x:Name="BackgroundGrid" Grid.RowSpan="2" PointerPressed="BackgroundGrid_PointerPressed">
-        <MediaPlayerElement x:Name="Background" Stretch="UniformToFill" AreTransportControlsEnabled="False"   />
+
+            <MediaPlayerElement x:Name="Background" Opacity="1" Stretch="UniformToFill" AreTransportControlsEnabled="False"   />
             <Rectangle Opacity="0.4" Fill="Black" x:Name="BackgroundOverlay" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <animations:Implicit.ShowAnimations>
                     <animations:OpacityAnimation Duration="0:0:0.999" From="1" To="0.4"/>
                 </animations:Implicit.ShowAnimations>
             </Rectangle>
         </Grid>
-        <Grid x:Name="ShellBar" Grid.Row="1" Background="{StaticResource BackdropAcrylicBrush}" Shadow="{StaticResource ShellBarShadow}" Translation="0,0,16" >
+        <Grid x:Name="ShellBar" Height="56" Grid.Row="1" Margin="0,0,0,0" Background="{StaticResource BackdropAcrylicBrush}" Shadow="{StaticResource ShellBarShadow}" Translation="0,0,16" >
             <animations:Implicit.ShowAnimations>
                 <animations:TranslationAnimation Duration="0:0:0.150" From="0, 80, 0" To="0" />
                 <animations:OpacityAnimation Duration="0:0:0.150" From="0" To="1.0"/>
             </animations:Implicit.ShowAnimations>
-            
-            
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="1">
-                <Button Width="32" x:Name="AudioButton" Padding="0" VerticalAlignment="Stretch" Background="Transparent" Foreground="{StaticResource PrimaryTextColor}" Style="{StaticResource IconOnlyButton}" Click="AudioButton_Click">
-                    <Button.Content>
-                        <FontIcon FontSize="18"  Glyph="&#xE994;" />
-                    </Button.Content>
-                    <animations:Implicit.ShowAnimations>
-                        <animations:TranslationAnimation Duration="0:0:0.550" From="0, 420, 0" To="0" />
-                        <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
-                    </animations:Implicit.ShowAnimations>
-                </Button>
-                <Button Width="32" x:Name="BatteryButton" Padding="0" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource IconOnlyButton}">
-                    <Button.Content>
-                        <FontIcon FontSize="18" FontWeight="Light" Glyph="&#xF5F9;" />
-                    </Button.Content>
-                    <animations:Implicit.ShowAnimations>
-                        <animations:TranslationAnimation Duration="0:0:0.550" From="0, 320, 0" To="0" />
-                        <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
-                    </animations:Implicit.ShowAnimations>
-                </Button>
-                <Button Width="32" x:Name="SettingsButton" Padding="0" VerticalAlignment="Stretch" Foreground="{StaticResource PrimaryTextColor}" Background="Transparent" Style="{StaticResource IconOnlyButton}">
-                    <Button.Content>
-                        <FontIcon FontSize="18" Glyph="&#xE713;" />
-                    </Button.Content>
-                    <animations:Implicit.ShowAnimations>
-                        <animations:TranslationAnimation Duration="0:0:0.550" From="0, 220, 0" To="0" />
-                        <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
-                    </animations:Implicit.ShowAnimations>
-                </Button>
-                <TextBlock x:Name="TimeTextBlock" Text="08:42 PM" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Center" Margin="12" FontWeight="SemiBold">
+            <animations:Implicit.Animations>
+                <animations:OffsetAnimation Duration="0:0:0.550"  />
+            </animations:Implicit.Animations>
+
+            <Grid x:Name="ShellContentGrid" VerticalAlignment="Stretch">
+                <animations:Implicit.Animations>
+                    <animations:OffsetAnimation Duration="0:0:0.550"  />
+                </animations:Implicit.Animations>
+
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Grid.Row="1">
+                    <Button Width="32" x:Name="AudioButton" Padding="0" VerticalAlignment="Stretch" Background="Transparent" Foreground="{StaticResource PrimaryTextColor}" Style="{StaticResource IconOnlyButton}" Click="AudioButton_Click">
+                        <Button.Content>
+                            <FontIcon FontSize="18" Glyph="&#xE994;" />
+                        </Button.Content>
+                        <animations:Implicit.ShowAnimations>
+                            <animations:TranslationAnimation Duration="0:0:0.550" From="0, 420, 0" To="0" />
+                            <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
+                        </animations:Implicit.ShowAnimations>
+                    </Button>
+                    <Button Width="32" x:Name="PhoneButton" Padding="0" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource IconOnlyButton}" Click="PhoneButton_Click">
+                        <Button.Content>
+                            <FontIcon FontSize="18" FontWeight="Light" Glyph="&#xE8EA;" />
+                        </Button.Content>
+                        <animations:Implicit.ShowAnimations>
+                            <animations:TranslationAnimation Duration="0:0:0.550" From="0, 320, 0" To="0" />
+                            <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
+                        </animations:Implicit.ShowAnimations>
+                    </Button>
+
+                    <Button Width="32" x:Name="TouchButton" Padding="0" Visibility="Collapsed" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource IconOnlyButton}" Click="TouchButton_Click">
+                        <Button.Content>
+                            <FontIcon FontSize="18" FontWeight="Light" Glyph="&#xEBFC;" />
+                        </Button.Content>
+                        <animations:Implicit.ShowAnimations>
+                            <animations:TranslationAnimation Duration="0:0:0.550" From="0, 320, 0" To="0" />
+                            <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
+                        </animations:Implicit.ShowAnimations>
+                    </Button>
+
+                    <Button Width="32" x:Name="MouseButton" Padding="0" Visibility="Visible" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource IconOnlyButton}" Click="MouseButton_Click">
+                        <Button.Content>
+                            <FontIcon FontSize="18" FontWeight="Light" Glyph="&#xE8B0;" />
+                        </Button.Content>
+                        <animations:Implicit.ShowAnimations>
+                            <animations:TranslationAnimation Duration="0:0:0.550" From="0, 320, 0" To="0" />
+                            <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
+                        </animations:Implicit.ShowAnimations>
+                    </Button>
+
+                    <Button Width="32" x:Name="BatteryButton" Padding="0" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Stretch" Background="Transparent" Style="{StaticResource IconOnlyButton}">
+                        <Button.Content>
+                            <FontIcon FontSize="18" FontWeight="Light" Glyph="&#xF5F9;" />
+                        </Button.Content>
+                        <animations:Implicit.ShowAnimations>
+                            <animations:TranslationAnimation Duration="0:0:0.550" From="0, 320, 0" To="0" />
+                            <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
+                        </animations:Implicit.ShowAnimations>
+                    </Button>
+                    <Button Width="32" x:Name="SettingsButton" Padding="0" VerticalAlignment="Stretch" Foreground="{StaticResource PrimaryTextColor}" Background="Transparent" Style="{StaticResource IconOnlyButton}">
+                        <Button.Content>
+                            <FontIcon FontSize="18" Glyph="&#xE713;" />
+                        </Button.Content>
+                        <animations:Implicit.ShowAnimations>
+                            <animations:TranslationAnimation Duration="0:0:0.550" From="0, 220, 0" To="0" />
+                            <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
+                        </animations:Implicit.ShowAnimations>
+                    </Button>
+                    <TextBlock x:Name="TimeTextBlock" Text="08:42 PM" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Center" Margin="12" FontWeight="SemiBold">
                        <animations:Implicit.ShowAnimations>
                 <animations:TranslationAnimation Duration="0:0:0.550" From="0, 120, 0" To="0" />
                 <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
             </animations:Implicit.ShowAnimations>
-                </TextBlock>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
-                <Button x:Name="StartBtn" Style="{StaticResource IconOnlyButton}" Width="48" Padding="0" VerticalAlignment="Stretch" Background="Transparent" Click="StartBtn_Click">
-                    <animations:Implicit.ShowAnimations>
-                        <animations:TranslationAnimation Duration="0:0:0.550" From="0, 620, 0" To="0" />
-                        <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
-                    </animations:Implicit.ShowAnimations>
-                    <Button.Content>
-                        <Grid Width="20" Height="20" RowSpacing="2" ColumnSpacing="2">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Rectangle Fill="#FFed6826"/>
-                            <Rectangle Fill="#FF8bcb3d" Grid.Column="1"/>
-                            <Rectangle Fill="#FF09b0f0" Grid.Row="1"/>
-                            <Rectangle Fill="#FFf9c304" Grid.Row="1" Grid.Column="1"/>
-                        </Grid>
-                    </Button.Content>
-                </Button>
-                <Button Width="48" Padding="0" VerticalAlignment="Stretch" Background="Transparent" Foreground="{StaticResource PrimaryTextColor}" Style="{StaticResource IconOnlyButton}">
-                    <animations:Implicit.ShowAnimations>
-                        <animations:TranslationAnimation Duration="0:0:0.550" From="0, 520, 0" To="0" />
-                        <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
-                    </animations:Implicit.ShowAnimations>
-                    <Button.Content>
-                        <FontIcon FontSize="20" FontWeight="Light" Glyph="&#xE7C4;" />
-                    </Button.Content>
-                </Button>
-               
-            </StackPanel>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel x:Name="StartPanel" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+                    <animations:Implicit.Animations>
+                        <animations:OffsetAnimation Duration="0:0:0.550"  />
+                    </animations:Implicit.Animations>
+                    <Button x:Name="StartBtn" Style="{StaticResource IconOnlyButton}" Width="48" Padding="0" VerticalAlignment="Stretch" Background="Transparent" Click="StartBtn_Click">
+                        <animations:Implicit.ShowAnimations>
+                            <animations:TranslationAnimation Duration="0:0:0.550" From="0, 620, 0" To="0" />
+                            <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
+                        </animations:Implicit.ShowAnimations>
+                        <Button.Content>
+                            <Grid Width="20" Height="20" RowSpacing="2" ColumnSpacing="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Fill="#FFed6826"/>
+                                <Rectangle Fill="#FF8bcb3d" Grid.Column="1"/>
+                                <Rectangle Fill="#FF09b0f0" Grid.Row="1"/>
+                                <Rectangle Fill="#FFf9c304" Grid.Row="1" Grid.Column="1"/>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="48" Padding="0" VerticalAlignment="Stretch" Background="Transparent" Foreground="{StaticResource PrimaryTextColor}" Style="{StaticResource IconOnlyButton}">
+                        <animations:Implicit.ShowAnimations>
+                            <animations:TranslationAnimation Duration="0:0:0.550" From="0, 520, 0" To="0" />
+                            <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="1.0"/>
+                        </animations:Implicit.ShowAnimations>
+                        <Button.Content>
+                            <FontIcon FontSize="20" FontWeight="Light" Glyph="&#xE7C4;" />
+                        </Button.Content>
+                    </Button>
+
+                </StackPanel>
+            </Grid>
         </Grid >
         <controls:StartMenu x:Name="StartMenu" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,16">
             <animations:Implicit.ShowAnimations>
@@ -125,6 +167,17 @@
             </animations:Implicit.HideAnimations>
         </controls:VolumeControl>
 
+        <controls:YourPhone x:Name="YourPhoneControl" HorizontalAlignment="Right" Visibility="Collapsed" VerticalAlignment="Bottom" Margin="16">
+            <animations:Implicit.ShowAnimations>
+                <animations:TranslationAnimation Duration="0:0:0.150" From="0, 40, 0" To="0" />
+                <animations:OpacityAnimation Duration="0:0:0.150" From="0" To="1.0"/>
+            </animations:Implicit.ShowAnimations>
+            <animations:Implicit.HideAnimations>
+                <animations:TranslationAnimation Duration="0:0:0.350" To="0, 40, 0" From="0" />
+                <animations:OpacityAnimation Duration="0:0:0.350" From="1.0" To="0"/>
+            </animations:Implicit.HideAnimations>
+        </controls:YourPhone>
+
         <controls:VolumeControl2 x:Name="MusicControl2" HorizontalAlignment="Right" Visibility="Collapsed" VerticalAlignment="Bottom" Margin="16">
             <animations:Implicit.ShowAnimations>
                 <animations:TranslationAnimation Duration="0:0:0.150" From="0, 40, 0" To="0" />
@@ -135,11 +188,15 @@
                 <animations:OpacityAnimation Duration="0:0:0.350" From="1.0" To="0"/>
             </animations:Implicit.HideAnimations>
         </controls:VolumeControl2>
-        <Rectangle x:Name="LoadingOverlay" Grid.RowSpan="2" Visibility="Visible" Fill="#FF0f0f10">
+        <Grid x:Name="LoadingOverlay" Grid.RowSpan="2" Visibility="Visible" Background="Black">
             <animations:Implicit.HideAnimations>
+                <animations:TranslationAnimation Duration="0:0:0.350" To="0, 40, 0" From="0" />
                 <animations:OpacityAnimation Duration="0:0:0.350" From="1.0" To="0"/>
             </animations:Implicit.HideAnimations>
-        </Rectangle>
+
+        </Grid>
+
+
 
         <!--<Grid x:Name="LockScreen" Visibility="Collapsed">
             <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="96,120,0,0">

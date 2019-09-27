@@ -11,16 +11,17 @@
     xmlns:ToolkitControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <Grid x:Name="RootGrid" Height="840" Width="600" >
+    <Grid x:Name="RootGrid" Height="840" Width="680" >
         <Grid.Resources>
             <ThemeShadow x:Name="AvatarShadow"/>
             <ThemeShadow x:Name="DialogShadow"/>
         </Grid.Resources>
         <Grid x:Name="ContentShadowGrid" CornerRadius="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <Grid x:Name="ContentGrid" Margin="0,0,0,20" Height="720" Width="560" CornerRadius="4" VerticalAlignment="Bottom" Background="{StaticResource BackdropAcrylicBrush}" Shadow="{StaticResource DialogShadow}" Translation="0,0,40">
+        <Grid x:Name="ContentGrid" Margin="0,0,0,20" Height="720" Width="640" CornerRadius="4" VerticalAlignment="Bottom" Background="{StaticResource BackdropAcrylicBrush}" Shadow="{StaticResource DialogShadow}" Translation="0,0,40">
             <Grid.RowDefinitions>
                 <RowDefinition Height="120" />
                 <RowDefinition Height="64" />
+
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid x:Name="NameGrid" Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" PointerEntered="NameGrid_PointerEntered" PointerExited="NameGrid_PointerExited">
@@ -44,7 +45,7 @@
                 <animations:OpacityAnimation Duration="0:0:0.350" From="1.0" To="0"/>
             </animations:Implicit.HideAnimations>
                 </TextBlock>
-                <Button x:Name="LockButton" HorizontalAlignment="Left" Opacity="0.0" Margin="34,0,0,0" Visibility="Collapsed"   Style="{StaticResource IconOnlyWithoutBackgroundButton}" Foreground="{StaticResource PrimaryTextColor}" Background="Transparent">
+                <Button x:Name="LockButton" HorizontalAlignment="Left" Opacity="0.0" Margin="38,0,0,0" Style="{StaticResource IconOnlyWithoutBackgroundButton}" Foreground="{StaticResource PrimaryTextColor}" Background="Transparent">
                     <animations:Implicit.ShowAnimations>
                         <animations:TranslationAnimation Duration="0:0:0.550" From="0, -280, 0" To="0" />
                         <animations:OpacityAnimation Duration="0:0:0.550" From="0" To="0.6"/>
@@ -54,10 +55,10 @@
                         <animations:OpacityAnimation Duration="0:0:0.350" From="1.0" To="0"/>
                     </animations:Implicit.HideAnimations>
                     <Button.Content>
-                        <FontIcon FontSize="20" FontWeight="Light" Glyph="&#xE72E;" />
+                        <FontIcon FontSize="20" FontWeight="Light" Glyph="&#xE71D;" />
                     </Button.Content>
                 </Button>
-                <Button x:Name="PowerButton" Style="{StaticResource IconOnlyWithoutBackgroundButton}" Visibility="Collapsed"   Opacity="0.6" Margin="0,0,34,0" HorizontalAlignment="Right" Foreground="{StaticResource PrimaryTextColor}" Background="Transparent" Click="PowerButton_Click">
+                <Button x:Name="PowerButton" Style="{StaticResource IconOnlyWithoutBackgroundButton}" Opacity="0.6" Margin="0,0,38,0" HorizontalAlignment="Right" Foreground="{StaticResource PrimaryTextColor}" Background="Transparent" Click="PowerButton_Click">
                     <Button.Flyout>
                         <MenuFlyout>
                             <MenuFlyoutItem Text="Sleep">
@@ -100,8 +101,9 @@
                     <Vector3Transition Duration="0:0:0.8"/>
                 </AutoSuggestBox.TranslationTransition>
             </AutoSuggestBox>
-            
-            <ToolkitControls:WrapPanel x:Name="AppGrid" Grid.Row="2" Margin="12,32,12,0" HorizontalSpacing="16" VerticalSpacing="24" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+
+
+            <ToolkitControls:WrapPanel x:Name="AppGrid" Grid.Row="2" Margin="0,32,0,0" HorizontalSpacing="12" VerticalSpacing="24" HorizontalAlignment="Center" VerticalAlignment="Stretch">
                 <!--<ToolkitControls:WrapPanel.Transitions>
                     <TransitionCollection>
                         <EntranceThemeTransition IsStaggeringEnabled="True" 
@@ -112,25 +114,47 @@
                         <ContentThemeTransition/>
                     </TransitionCollection>
                 </ToolkitControls:WrapPanel.Transitions>-->
-                <controls:AppTile TileColor = "#FF0067cf" AppName = "OneDrive" IconPath = "ms-appx:///Assets/Icons/OneDrive.png" Padding="18" />
 
-                <controls:AppTile TileColor = "#FF1ed760" AppName = "Spotify" IconPath = "ms-appx:///Assets/Icons/Spotify.png" Padding="18" />
+                <controls:AppTile TileColor = "#FF1ed760" AppName = "Weather" IconPath = "ms-appx:///Assets/Icons/Weather.png" Padding="14" />
 
-                <controls:AppTile TileColor = "#FF004b99" AppName = "Outlook" IconPath = "ms-appx:///Assets/Icons/Outlook.png" Padding="18"/>
+                <controls:AppTile TileColor = "#FF962710" AppName = "Snip &amp; Sketch" IconPath = "ms-appx:///Assets/Icons/ScreenSketch.png" Padding="14"/>
 
-                <controls:AppTile TileColor = "#FF000000" AppName = "Netflix" IconPath = "ms-appx:///Assets/Icons/Netflix.png" Padding="6" />
+                <controls:AppTile TileColor = "#FF000000" AppName = "Whiteboard" IconPath = "ms-appx:///Assets/Icons/Whiteboard.png" Padding="14" />
+                <controls:AppTile TileColor = "#FF004b99" AppName = "Solitaire Collection" IconPath = "ms-appx:///Assets/Icons/Solitaire.png" Padding="14"/>
 
-                <controls:AppTile TileColor = "#FF962710" AppName = "PowerPoint" IconPath = "ms-appx:///Assets/Icons/PowerPoint.png" Padding="18"/>
 
-                <controls:AppTile TileColor = "#FF0079c8" AppName = "Skype" IconPath = "ms-appx:///Assets/Icons/Skype.png" Padding="18"/>
 
-                <controls:AppTile TileColor = "#FF0a326a" AppName = "Word" IconPath = "ms-appx:///Assets/Icons/Word.png" Padding="18"/>
 
-                <controls:AppTile TileColor = "#FF202a7a" AppName = "Teams" IconPath = "ms-appx:///Assets/Icons/Teams.png" Padding="18"/>
 
-                <controls:AppTile TileColor = "#FF005a25" AppName = "Excel" IconPath = "ms-appx:///Assets/Icons/Excel.png" Padding="18"/>
+                <controls:AppTile TileColor = "#FF0067cf" AppName = "OneDrive" IconPath = "ms-appx:///Assets/Icons/OneDrive.png" Padding="14" />
 
-                <controls:AppTile TileColor = "#FF570384" AppName = "OneNote" IconPath = "ms-appx:///Assets/Icons/OneNote.png" Padding="18"/>
+                <controls:AppTile TileColor = "#FF570384" AppName = "Camera" IconPath = "ms-appx:///Assets/Icons/Camera.png" Padding="16"/>
+
+                <controls:AppTile TileColor = "#FF570384" AppName = "Feedback Hub" IconPath = "ms-appx:///Assets/Icons/Feedback.png" Padding="16"/>
+
+                <controls:AppTile TileColor = "#FF570384" AppName = "Mobile Plans" IconPath = "ms-appx:///Assets/Icons/Mobile.png" Padding="16"/>
+
+                <controls:AppTile TileColor = "#FF570384" AppName = "Calendar" IconPath = "ms-appx:///Assets/Icons/Calendar.png" Padding="16"/>
+                <!--<controls:AppTile TileColor = "#FF0079c8" AppName = "Skype" IconPath = "ms-appx:///Assets/Icons/Skype.png" Padding="14"/>-->
+                <controls:AppTile TileColor = "#FF570384" AppName = "Mail" IconPath = "ms-appx:///Assets/Icons/Mail.png" Padding="14"/>
+
+
+                <controls:AppTile TileColor = "#FF570384" AppName = "Movies &amp; TV" IconPath = "ms-appx:///Assets/Icons/Movies.png" Padding="14"/>
+
+
+
+                <controls:AppTile TileColor = "#FF570384" AppName = "Groove Music" IconPath = "ms-appx:///Assets/Icons/Groove.png" Padding="14"/>
+
+                <controls:AppTile TileColor = "#FF005a25" AppName = "Photos" IconPath = "ms-appx:///Assets/Icons/Photos.png" Padding="14"/>
+
+
+                <controls:AppTile TileColor = "#FF0a326a" AppName = "File Explorer" IconPath = "ms-appx:///Assets/Icons/FileExplorer.png" Padding="14"/>
+
+
+
+
+
+
             </ToolkitControls:WrapPanel>
         </Grid>
 
